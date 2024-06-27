@@ -1,0 +1,137 @@
+[gd_scene load_steps=17 format=3 uid="uid://b2safkrrxeh2j"]
+
+[ext_resource type="Texture2D" uid="uid://dvofusr1ds3u8" path="res://Assets/Sandra/Resources/SandraSaltoI.png" id="1_r8fw7"]
+[ext_resource type="Texture2D" uid="uid://rii40yycimpw" path="res://Assets/Sandra/Resources/SandraAfkI.png" id="1_wt8gw"]
+[ext_resource type="Texture2D" uid="uid://dx7jgo0a0mp64" path="res://Assets/Sandra/Resources/SandraAfkII.png" id="2_4vqf4"]
+[ext_resource type="Texture2D" uid="uid://8o8q2j4bkwsq" path="res://Assets/Sandra/Resources/SandraSaltoII.png" id="2_8xqem"]
+[ext_resource type="Texture2D" uid="uid://clki1gibd3d6m" path="res://Assets/Sandra/Resources/SandraSaltoIII.png" id="3_l8nb3"]
+[ext_resource type="Texture2D" uid="uid://d2afa5dgwuwv1" path="res://Assets/Sandra/Resources/SandraCaidaI.png" id="4_8n63h"]
+[ext_resource type="Texture2D" uid="uid://cvwjmc11ifyml" path="res://Assets/Sandra/Resources/SandraCaidaII.png" id="5_7n0y1"]
+[ext_resource type="Texture2D" uid="uid://dd26dd2csq1dk" path="res://Assets/Sandra/Resources/SandraCaidaIII.png" id="6_p5d88"]
+[ext_resource type="Texture2D" uid="uid://cot5i4h3qf8de" path="res://Assets/Sandra/Resources/SandraIdle.png" id="7_f7uyv"]
+[ext_resource type="Texture2D" uid="uid://dtctk0emgrsih" path="res://Assets/Sandra/Resources/SandraRunI.png" id="8_1pi3n"]
+[ext_resource type="Texture2D" uid="uid://cgtfus04hdl0g" path="res://Assets/Sandra/Resources/SandraSorprendida.png" id="9_6ghqm"]
+[ext_resource type="Texture2D" uid="uid://dmx3r3knmnqcw" path="res://Assets/Sandra/Resources/SandraVictoriaIII.png" id="11_hiq8o"]
+[ext_resource type="Texture2D" uid="uid://c3vjj26top2go" path="res://Assets/Sandra/Resources/SandraVictoriaIV.png" id="12_chnue"]
+[ext_resource type="Texture2D" uid="uid://c53s4d2hhk6yl" path="res://Assets/Sandra/Resources/SandraVictoriaV.png" id="13_y0s2a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12v5d"]
+size = Vector2(22, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvjxh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wt8gw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4vqf4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4vqf4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_wt8gw")
+}],
+"loop": false,
+"name": &"Afk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8n63h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7n0y1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p5d88")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r8fw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8xqem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8n63h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7n0y1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p5d88")
+}],
+"loop": false,
+"name": &"GameOver",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_f7uyv")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8xqem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l8nb3")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_f7uyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1pi3n")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_6ghqm")
+}],
+"loop": false,
+"name": &"Surprice",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_hiq8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_chnue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y0s2a")
+}],
+"loop": false,
+"name": &"Win",
+"speed": 3.0
+}]
+
+[node name="Sandra" type="CharacterBody2D"]
+position = Vector2(16, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 4)
+shape = SubResource("RectangleShape2D_12v5d")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, -2)
+sprite_frames = SubResource("SpriteFrames_jvjxh")
+animation = &"Idle"
